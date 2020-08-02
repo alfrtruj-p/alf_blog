@@ -1,3 +1,7 @@
 *.pyc
 *_pycache_
+<<<<<<< HEAD
+*.json
+=======
 
+>>>>>>> integration
