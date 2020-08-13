@@ -16,4 +16,19 @@
         </form>
     </div>
 
+    {% if form.texto != '' %}
+        <div class="content-section">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">La traducción en Chatru es la siguiente:</legend>
+                    {{ chatru }}
+            </fieldset>
+            <div class="form-group">
+                <a href="{% url 'chatru' %}"><button class="btn btn-outline-info" type="submit">Otra vez?</button></a>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+
 {% endblock content %}

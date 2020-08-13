@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Traduccion
+from .models import Translation
 
 # Register your models here.
-admin.site.register(Traduccion)
+admin.site.register(Translation)

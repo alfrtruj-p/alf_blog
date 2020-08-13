@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 
-class Traduccion(models.Model):
+class Translation(models.Model):
     texto = models.TextField()
+
 

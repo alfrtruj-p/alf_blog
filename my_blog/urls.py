@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
-from chatru.views import ChatruView
+from chatru import views as chatru_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,7 +40,7 @@ urlpatterns = [
     path('password-reset-complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
          name='password_reset_complete'),
-    path('chatru/', ChatruView.as_view(), name='chatru'),
+    path('chatru/', chatru_views.chatru_form, name='chatru'),
 ]
 
 if settings.DEBUG:
