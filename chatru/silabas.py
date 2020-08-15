@@ -1,52 +1,53 @@
-# http://elies.rediris.es/elies4/Fon2.htm
-# http://liceu.uab.es/~joaquim/general_linguistics/gen_ling/fonologia/silaba/silaba.html
 
 
 def silabas(palabra_a_traducir):
     silabas_en_la_palabra = []
     letra = 0
-
-    palabra = minusculas(palabra_a_traducir)
-    if palabra == 'numeros': # si hay un número en la palabra, no se traduce.
-        silabas_en_la_palabra.append(palabra_a_traducir)
+    puntuacion = ''
+    if palabra_a_traducir[-1] in (',', '.', ';', ':', '?'): # quitar la puntuación al final de una palabra
+        puntuacion = palabra_a_traducir[-1]
+        palabra = palabra_a_traducir[0:-1]
+        palabra = minusculas(palabra)
+    else:
+        palabra = minusculas(palabra_a_traducir)
+    contains_digit = any(map(str.isdigit, palabra))
+    if palabra == 'chatru':
+        silabas_en_la_palabra.append('Chatru')
+    elif contains_digit: # si hay un número en la palabra, no se traduce.
+        silabas_en_la_palabra.append(palabra)
+        print(silabas_en_la_palabra)
     else:
         while True:
-            try:
-                if letra >= len(palabra):
-                    break
-                salto = 0
-
-                if consonante(palabra[letra]):
-                    if guegui(palabra[letra + salto:]):  # esto es una chapu, pero no tengo otra forma por ahora :(
-                        salto += 2
-                    elif ataque_complejo(palabra[letra:letra + 2]):
-                        salto += 2
-                    else:
-                        salto += 1
-
-                else:
-                    salto += 0  # vocal
-
-                if triptongo(palabra[letra + salto:]):
-                    salto += 3
-                elif diptongo_con_h(palabra[letra + salto:]):
-                    salto += 3
-                elif diptongo(palabra[letra + salto:]):
+            if letra >= len(palabra):
+                break
+            salto = 0
+            if consonante(palabra[letra]):
+                if guegui(palabra[letra + salto:]):  # esto es una chapu, pero no tengo otra forma por ahora :(
                     salto += 2
-                elif dieresis(palabra[letra + salto:]):
+                elif ataque_complejo(palabra[letra:letra + 2]):
                     salto += 2
                 else:
                     salto += 1
+            else:
+                salto += 0  # vocal
+            if triptongo(palabra[letra + salto:]):
+                salto += 3
+            elif diptongo_con_h(palabra[letra + salto:]):
+                salto += 3
+            elif diptongo(palabra[letra + salto:]):
+                salto += 2
+            elif dieresis(palabra[letra + salto:]):
+                salto += 2
+            else:
+                salto += 1
+            salto += coda(palabra[letra + salto:])
+            silaba = palabra[letra:letra + salto]
+            letra += salto
 
-                salto += coda(palabra[letra + salto:])
-
-                silaba = palabra[letra:letra + salto]
-                letra += salto
-
-                silabas_en_la_palabra.append(silaba)
-
-            except IndexError:
-                break
+            silabas_en_la_palabra.append(silaba)
+    if puntuacion != '':
+        silabas_en_la_palabra.append(puntuacion)
+        print(silabas_en_la_palabra)
 
     return silabas_en_la_palabra
 
@@ -72,7 +73,7 @@ def guegui(c):
 
 def diptongo(trozo):
     if len(trozo) < 2: return False
-    if trozo[0:2] in ['ai', 'au', 'ei', 'eu', 'io', 'ou', 'ia', 'ua', 'ie', 'ue', 'oi', 'uo', 'ui',
+    if trozo[0:2] in ['ai', 'au', 'ei', 'eu', 'io', 'ió', 'ou', 'ia', 'ua', 'ie', 'ue', 'oi', 'uo', 'ui',
                       'iu']: return True
     if len(trozo) == 2 and trozo in ['ay', 'ey', 'oy']: return True
     return False
@@ -120,15 +121,11 @@ def coda(trozo):
 
 
 def minusculas(texto):
-    contains_digit = any(map(str.isdigit, texto))
-    if contains_digit:
-        ret = 'numeros'
-    else:
-        ret = ""
-        mapeo = {'Á': 'á', 'É': 'é', 'Í': 'í', 'Ó': 'ó', 'Ú': 'ú', 'Ü': 'ü', 'Ñ': 'ñ'}
-        for letra in texto:
-            if letra in mapeo:
-                ret += letra.replace(letra, mapeo[letra])
-            else:
-                ret += letra.lower()
+    ret = ''
+    mapeo = {'Á': 'á', 'É': 'é', 'Í': 'í', 'Ó': 'ó', 'Ú': 'ú', 'Ü': 'ü', 'Ñ': 'ñ'}
+    for letra in texto:
+        if letra in mapeo:
+            ret += letra.replace(letra, mapeo[letra])
+        else:
+            ret += letra.lower()
     return ret
