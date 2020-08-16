@@ -15,7 +15,6 @@ def silabas(palabra_a_traducir):
         silabas_en_la_palabra.append('Chatru')
     elif contains_digit: # si hay un número en la palabra, no se traduce.
         silabas_en_la_palabra.append(palabra)
-        print(silabas_en_la_palabra)
     else:
         while True:
             if letra >= len(palabra):
@@ -47,7 +46,6 @@ def silabas(palabra_a_traducir):
             silabas_en_la_palabra.append(silaba)
     if puntuacion != '':
         silabas_en_la_palabra.append(puntuacion)
-        print(silabas_en_la_palabra)
 
     return silabas_en_la_palabra
 

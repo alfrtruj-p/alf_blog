@@ -23,6 +23,10 @@ def about_chatru(request):
     return render(request, 'chatru/about.html', {'title': 'About'})
 
 
+def about_esp(request):
+    return render(request, 'chatru/about_esp.html', {'title': 'About'})
+
+
 
 
 

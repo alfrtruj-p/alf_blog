@@ -21,6 +21,10 @@ def trocar(palabra):
         puntuacion = palabra[-1]
         palabra = palabra[0:-1]
     b = len(palabra)
+    if b == 6 or b == 7:
+        palabra[0], palabra[1] = palabra[1], palabra[0]
+        palabra[2], palabra[3] = palabra[3], palabra[2]
+        palabra[4], palabra[5] = palabra[5], palabra[4]
     if b == 4 or b == 5:
         palabra[0], palabra[1] = palabra[1], palabra[0]
         palabra[2], palabra[3] = palabra[3], palabra[2]
