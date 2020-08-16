@@ -1,38 +1,89 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
 
-    <div class="content-section">
+<div class="content-section">
 
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Chatru</legend>
-                <div>
-                    <h6><i>“El espíritu baja y desata las lenguas pero no habla palabras: habla Chatru.
+    <fieldset class="form-group" style="text-align: justify">
+        <legend class="border-bottom mb-4">Chatru</legend>
+        <div class="native">
+            <img src="{% static 'chatru/playa.jpg' %}" alt="Playa de Chatru">
+            <h7><i>Playa de Chatru</i></h7>
+        </div>
+        <br>
+
+        <div>
+            <h6><i>“El espíritu baja y desata las lenguas pero no habla palabras: habla Chatru.
                         El languaje es una profecía de llamas y una torre de humo y un desplome de
-                        sílabas quemadas: ceniza sin sentido.””</i></h6>
-                    <h7><i>Anonimo: un chaval que se la fumo verde.</i></h7>
-                </div>
-            <br>
-            <br>
-            <p>Lo primero que te imaginas cuando escuchas la palabra Chatru, es una explosión de sentimientos,
+                        sílabas quemadas: ceniza sin sentido.”</i></h6>
+            <h7><i>Anonimo: un chaval que se la fumo verde.</i></h7>
+        </div>
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/founders.png' %}" alt="Los fundadores">
+            <h7><i>Javier y Alfredo, los fundadores</i></h7>
+        </div>
+        <br>
+        <p>Lo primero que te imaginas cuando escuchas la palabra Chatru, es una explosión de sentimientos,
                 los colores cambian, la luz es más brillante, y el corazón sonríe. Chatru nace en las montañas
                 del norte de Noruega donde la naturaleza toca el cielo. Al sonido de la naturaleza y al son del
                 baile de los salmones y truchas, un par de aventureros de Argentina y Colombia, se mezclan con
                 la tierra nativa y nace Chatru de una inspiración ancestral y como medio de comunicación con
-                los pueblos de la región. </p>
-
-            <p>Otros inescrupulosos aventureros mencionan que el nacimiento de Chatru fue la influencia del alto
+                los pueblos de la región.</p>
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/mjod.png' %}" alt="Sabios momentos e inicios del Chatru">
+            <h7><i>Sabios momentos e inicios del Chatru</i></h7>
+        </div>
+        <br>
+        <p>Otros inescrupulosos aventureros mencionan que el nacimiento de Chatru fue la influencia del alto
                 consumo del Mjod, la cerveza vikinga destilada en los acantilados del la bella región de Lofoten,
                 pero esto es solo un rumor de las malas lenguas, Chatru nace de la inspiración y sabiduría de
                 dos genios, Javier Fontenla y Alfredo Trujillo.</p>
-            <br>
-            <br>
-            <p>Chatru es una lengua latina que se habla en el país de Chatru, una isla independiente en el
+
+        <br>
+        <div class="flag">
+            <img src="{% static 'chatru/Chatru_flag.png' %}" alt="Bandera de Chatru">
+            <h7><i>Bandera de Chatru</i></h7>
+        </div>
+        <br>
+        <div class="flag">
+            <img src="{% static 'chatru/chatru_flag2.png' %}" alt="Bandera ondeando">
+            <h7><i>Bandera ondeada en la plaza</i></h7>
+        </div>
+        <br>
+
+        <p>Chatru es una lengua latina que se habla en el país de Chatru, una isla independiente en el
                 medio del caribe Colombiano descubierta por los fundadores de Chatru y localizada en las
-                coordenadas 10°14'05.9" Norte 75°44'24.1" Oeste. El acceso a la isla es restringido a personas
+                coordenadas 10°10'42.0"Norte 75°46'35.2" Oeste. El acceso a la isla es restringido a personas
                 con pensamiento positivo y ganas de ayudar a la humanidad a progresar. Así mismo la fauna y la
-                flora es protegida, sin embargo es posible identificar la isla por su bandera izada todos los días.</p>
-        </fieldset>
-    </div>
+                flora es protegida, sin embargo es posible identificar la isla por su bandera izada todos los
+                días y por sus bellas nativas. Actualmente hay nueve habitantes, siete nativas y los dos fundadores,
+                además de un perro y un gallo.</p>
+
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/chatruna.jpg' %}" alt="Nativa de Chutra">
+            <h7><i>Nativa de Chatru</i></h7>
+        </div>
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/natives.jpg' %}" alt="Nativas saliendo a coger cocos">
+            <h7><i>Nativas saliendo a coger cocos</i></h7>
+        </div>
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/perro.jpg' %}" alt="Robinson aprendiendo a nadar">
+            <h7><i>Robinson aprendiendo a nadar</i></h7>
+        </div>
+        <br>
+        <div class="native">
+            <img src="{% static 'chatru/gallito.jpg' %}" alt="Viernes mirando el atardecer">
+            <h7><i>Viernes mirando el atardecer</i></h7>
+        </div>
+        <br>
+    </fieldset>
+</div>
 
 
 {% endblock content %}
